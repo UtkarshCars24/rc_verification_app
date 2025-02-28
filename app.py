@@ -43,4 +43,4 @@ if uploaded_file is not None:
     st.subheader("🔍 Prediction Result")
     st.write(f"**Result:** {label}")
     st.write(f"**Confidence Score:** {confidence}%")
-Added app.py
+
