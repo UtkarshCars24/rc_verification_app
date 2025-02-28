@@ -2,9 +2,19 @@ import streamlit as st
 import tensorflow as tf
 import cv2
 import numpy as np
+import os
 
-# Load the trained model
-model = tf.keras.models.load_model("rc_verification_model.h5")
+# Ensure the model is downloaded
+MODEL_PATH = "rc_verification_model.h5"
+MODEL_URL = "https://github.com/YOUR_GITHUB_USERNAME/rc_verification_app/raw/main/rc_verification_model.h5"
+
+if not os.path.exists(MODEL_PATH):
+    st.info("Downloading model... (Please wait ⏳)")
+    import urllib.request
+    urllib.request.urlretrieve(MODEL_URL, MODEL_PATH)
+
+# Load trained model
+model = tf.keras.models.load_model(MODEL_PATH)
 
 # Function to process images
 def process_image(image_path):
@@ -43,4 +53,3 @@ if uploaded_file is not None:
     st.subheader("🔍 Prediction Result")
     st.write(f"**Result:** {label}")
     st.write(f"**Confidence Score:** {confidence}%")
-
