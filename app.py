@@ -6,7 +6,7 @@ import os
 
 # Ensure the model is downloaded
 MODEL_PATH = "rc_verification_model.h5"
-MODEL_URL = "https://github.com/YOUR_GITHUB_USERNAME/rc_verification_app/raw/main/rc_verification_model.h5"
+MODEL_URL = "https://github.com/UtkarshCars24/rc_verification_app/raw/main/rc_verification_model.h5"
 
 if not os.path.exists(MODEL_PATH):
     st.info("Downloading model... (Please wait ⏳)")
